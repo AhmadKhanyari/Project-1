@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kashmir University Trip Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex items-center justify-center bg-cover bg-center"
+      style="background-image: url('https://gadyalkashmir.com/wp-content/uploads/2025/12/university-of-kashmir-srinagar-253239.jpg');">
+
+      <!-- header -->
+    <div class="backdrop-blur-xl rounded-2xl p-8 w-full max-w-lg shadow-2xl border border-white/20">
+
+        <h1 class="text-3xl font-bold text-black text-center mb-3">
+            University Of Kashmir Trip Form
+        </h1>
+
+        <p class="text-center text-green-800 mb-6">
+            This form is for the trip organized by the University of Kashmir. Please fill in your details to confirm your participation in this exciting trip.
+        </p>
+
+        <form action="first.php" method="post" class="space-y-4">
+
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Enter your name" 
+                required
+                class="w-full px-4 py-2 bg-transparent text-black placeholder-white/70 border border-white/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            >
+
+            <input 
+                type="text" 
+                name="gender" 
+                placeholder="Enter your gender" 
+                required
+                class="w-full px-4 py-2 bg-transparent text-black placeholder-white/70 border border-white/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            >
+
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="Enter your email" 
+                required
+                class="w-full px-4 py-2 bg-transparent text-black placeholder-white/70 border border-white/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            >
+
+            <input 
+                type="text" 
+                name="phone" 
+                placeholder="Enter your phone number" 
+                required
+                class="w-full px-4 py-2 bg-transparent text-black placeholder-white/70 border border-white/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            >
+
+            <textarea 
+                name="desc" 
+                rows="4" 
+                placeholder="Enter any other information"
+                class="w-full px-4 py-2 bg-transparent text-black placeholder-white/70 border border-white/40 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+            ></textarea>
+
+            <div class="flex gap-4 pt-4">
+                <button 
+                    type="submit"
+                    class="w-1/2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-300">
+                    Submit
+                </button>
+
+                <button 
+                    type="reset"
+                    class="w-1/2 bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 rounded-lg transition duration-300">
+                    Reset
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

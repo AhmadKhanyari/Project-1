@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // 1. Database Connection
 $server = "127.0.0.1";
 $username = "root";
@@ -27,15 +29,21 @@ if(isset($_POST['name'])){
             VALUES ('$name', '$age', '$gender', '$email', '$phone', '$desc', current_timestamp());";
 
     //  Executes and Checks the Query
-    if($con->query($sql) == true){
-        echo "<h2 style='color:green; text-align:center;'>Successfully registered for the trip!</h2>";
+   if($con->query($sql) == true){
+        // Store the success flag securely in the Session memory
+        $_SESSION['success'] = true; 
+        
+        $con->close(); 
+        
+        // Redirect to a completely clean URL with no extra text
+        header("Location: first.php");
+        exit(); 
+        
     } else {
         echo "ERROR: $sql <br> $con->error";
+        $con->close();
     }
-
-    //  Hangs up the phone
-    $con->close();
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -57,6 +65,16 @@ if(isset($_POST['name'])){
         <h1 class="text-3xl font-extrabold text-white text-center mb-2 tracking-wide drop-shadow-lg">
             University of Kashmir Trip Form
         </h1>
+
+        <?php
+        // Check if the success flag exists in Session memory
+        if(isset($_SESSION['success']) && $_SESSION['success'] == true){
+            echo "<p class='text-center text-green-400 font-bold mb-4 drop-shadow-md bg-green-900/30 py-2 rounded-lg'>Successfully registered for the trip!</p>";
+            
+            // Delete the flag! The next time you refresh, it will be gone.
+            unset($_SESSION['success']); 
+        }
+        ?>
 
         <p class="text-center text-gray-200 mb-8 text-sm font-medium drop-shadow-md">
             Please fill in your details below to confirm your participation.
